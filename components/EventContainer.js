@@ -61,11 +61,13 @@ const EventContainer = (props) => {
             spacing="8"
             my="4"
           >
-            <Button variant="outline" onClick={() => showAll()}>
+            <Button py="4" px="50" variant="outline" onClick={() => showAll()}>
               Show All
             </Button>
             <Button
               className="workshop"
+              py="4"
+              px="50"
               variant="outline"
               onClick={() => handleFilterClick({ eventType: "workshop" })}
             >
@@ -73,6 +75,8 @@ const EventContainer = (props) => {
             </Button>
             <Button
               className="activity"
+              py="4"
+              px="50"
               variant="outline"
               onClick={() => handleFilterClick({ eventType: "activity" })}
             >
@@ -81,13 +85,20 @@ const EventContainer = (props) => {
             <Button
               className="tech_talk"
               variant="outline"
+              py="4"
+              px="50"
               onClick={() => handleFilterClick({ eventType: "tech_talk" })}
             >
               Tech Talk
             </Button>
           </HStack>
           {/* </ButtonGroup> */}
-          <SimpleGrid columns={[null, 2, 4]} spacingX="40px" spacingY="20px">
+          <SimpleGrid
+            justifyContent="center"
+            columns={[null, 2, 4]}
+            spacingX="40px"
+            spacingY="20px"
+          >
             {events?.map((event, i) => (
               <EventComponent key={i} event={event} />
             ))}
