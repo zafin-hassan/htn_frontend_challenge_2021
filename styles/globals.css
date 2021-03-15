@@ -14,3 +14,32 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.workshop {
+  /* border: 2px solid lightcoral; */
+  background-color: #73c6b6;
+}
+
+.activity {
+  /* border: 2px solid lightblue; */
+  background-color: #ffbf74;
+}
+
+.tech_talk {
+  /* border: 2px solid lightgreen; */
+  background-color: #276897;
+}
+
+.landing-container {
+  min-height: 100vh;
+  padding: 1rem 4rem;
+  /* height: 100vh; */
+  /* width: 100; */
+  background-color: #fff2e6;
+}
+
+@media (max-width: 600px) {
+  .landing-container {
+    padding: 1rem;
+  }
+}
