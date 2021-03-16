@@ -1,5 +1,6 @@
 # Hack the North Front End Challenge
-
+Try it here: [https://htn-frontend-challenge-2021.vercel.app/](https://htn-frontend-challenge-2021.vercel.app/)  
+Video WalkThrough: [https://www.loom.com/share/091406fa2eb04757a2f48529351b8dcf](https://www.loom.com/share/091406fa2eb04757a2f48529351b8dcf)
 ## Installation
 To get running with the repository, run
 ```bash
