@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hack the North Front End Challenge
 
-## Getting Started
+## Installation
+To get running with the repository, run
+```bash
+npm install
+```
 
-First, run the development server:
+And then run
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Features
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Ability to filter events by type
+- Displaying events based on authentication status
+- Modal Component for each event
+- Color Coded events
+- Links for public and private events where available
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Design Decisions
 
-## Learn More
+### Folder Structure
+The project has the following folder structure:
+```
+└───components
+    └───Auth
+    └───EventComponent
+    └───EventContainer
+    └───EventModal
+└───context
+     └───EventContext
+└───pages
+    └───api
+    └───_app.js
+    └───index.js
+└───reducers
+└───styles
+    └───CircleIcon
+    └───global.css
+└───utils
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Tools Used
+- NextJS
+  - It is a great choice for server side rendering. NextJS also has a lot of really nice features built in such as routing and image caching!
+- Javascript
+- ChakraUI
+  - I really like the aesthetic of the components provided by ChakraUI and they have an easy to understand API.
+- ChakraUI Icons
+  - They pair up great with ChakraUI
+- Axios 
+  - Used this for data fetching from the hackthenorth API provided.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
