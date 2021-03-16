@@ -12,7 +12,7 @@ import {
 import { getEventByID } from "../utils";
 import { EventContext } from "../context/EventContext";
 import EventModal from "./EventModal";
-import { InfoIcon } from "@chakra-ui/icons";
+import { CalendarIcon, InfoIcon, TimeIcon } from "@chakra-ui/icons";
 
 const getEventType = ({ event_type }) => {
   switch (event_type) {
@@ -35,7 +35,7 @@ const EventComponent = (props) => {
   const { currentState, dispatch } = React.useContext(EventContext);
   const { events, currentEvent } = currentState;
   const { event } = props;
-  const { id, name, event_type, start_time } = event;
+  const { id, name, event_type, start_time, end_time } = event;
   const { category, color } = getEventType({ event_type });
 
   const showEventInfo = (id) => {
@@ -46,8 +46,31 @@ const EventComponent = (props) => {
     });
     onOpen();
   };
-  const time = new Date(start_time);
-  const timeString = time.toDateString();
+
+  // const milliseconds = start_time * 1000;
+
+  const dateObject = new Date(start_time);
+  const endDateObject = new Date(end_time);
+
+  const dayOptions = {
+    weekday: "long",
+    // year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const hourOptions = {
+    hour: "numeric",
+    minute: "numeric",
+  };
+  const timeString = dateObject.toLocaleDateString("en-US", dayOptions);
+  const startTime = dateObject
+    .toLocaleDateString("en-US", hourOptions)
+    .split(",")[1];
+  const endTime = endDateObject
+    .toLocaleDateString("en-US", hourOptions)
+    .split(",")[1];
+
+  console.log(startTime);
   return (
     <VStack
       align="left"
@@ -55,6 +78,7 @@ const EventComponent = (props) => {
       p={5}
       maxH="400px"
       maxW="320px"
+      onClick={() => showEventInfo(id, onOpen)}
     >
       <EventModal
         onClose={onClose}
@@ -62,22 +86,20 @@ const EventComponent = (props) => {
         currentEvent={currentEvent}
         events={events}
       />
-      <Heading size="lg">{name}</Heading>
+      <Heading size="md">{name}</Heading>
       <Badge backgroundColor="#fff2e6" width="fit-content" borderRadius="xl">
         {category}
       </Badge>
-      <Text>{timeString}</Text>
-      <HStack>
-        <Button
-          colorScheme="black"
-          size="sm"
-          color="black"
-          onClick={() => showEventInfo(id, onOpen)}
-        >
-          <InfoIcon w={4} h={4} align="right" />
-        </Button>
+      <HStack spacing={2}>
+        <CalendarIcon />
+        <Text>{timeString}</Text>
       </HStack>
-      <Container maxW="container.sm"></Container>
+      <HStack spacing={2}>
+        <TimeIcon />
+        <Text>
+          {startTime} - {endTime}
+        </Text>
+      </HStack>
     </VStack>
   );
 };

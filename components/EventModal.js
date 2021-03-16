@@ -10,8 +10,15 @@ import {
 } from "@chakra-ui/modal";
 import * as React from "react";
 import { Button } from "@chakra-ui/button";
-import { Heading, HStack, Spacer, Text, VStack } from "@chakra-ui/layout";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import {
+  Divider,
+  Heading,
+  HStack,
+  Spacer,
+  Text,
+  VStack,
+} from "@chakra-ui/layout";
+import { ExternalLinkIcon, LockIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { getEventByID } from "../utils";
 
@@ -22,11 +29,12 @@ const EventModal = (props) => {
   const finalRef = React.useRef();
   console.log(currentEvent.speakers);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const href = currentEvent.public_url || currentEvent.private_url;
-    router.push(href);
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  const eventPublicLink = currentEvent.public_url;
+  const eventPrivateLink = currentEvent.private_url;
+  //   router.push(href);
+  // };
   const relatedEventList = currentEvent?.related_events?.map((id) =>
     getEventByID(id, events)
   );
@@ -45,7 +53,30 @@ const EventModal = (props) => {
           <ModalCloseButton />
           <ModalBody>
             <Text>{currentEvent.description}</Text>
-            <Heading size="md" my="2">
+            <HStack my={4} spacing={4} align="left" width="fit-content">
+              {eventPublicLink && (
+                <Button backgroundColor="youtube">
+                  <a href={`${eventPublicLink}`} target="_blank">
+                    <HStack spacing={4} my={4}>
+                      <ExternalLinkIcon w={4} h={4} />
+                      <Text>Youtube</Text>
+                    </HStack>
+                  </a>
+                </Button>
+              )}
+              {eventPrivateLink && (
+                <Button backgroundColor="youtube">
+                  <a href={`${eventPrivateLink}`} target="_blank">
+                    <HStack spacing={4} my={4}>
+                      <LockIcon w={4} h={4} />
+                      <Text>Hopin</Text>
+                    </HStack>
+                  </a>
+                </Button>
+              )}
+            </HStack>
+            <Divider my={4} />
+            <Heading size="sm" my="2">
               Related Events
             </Heading>
             <VStack spacing={4} align="left">
@@ -53,12 +84,6 @@ const EventModal = (props) => {
                 <Text>{event?.name}</Text>
               ))}
             </VStack>
-            <Button backgroundColor="transparent">
-              <HStack>
-                <Text>Watch Video</Text>
-                <ExternalLinkIcon w={8} h={8} onClick={handleClick} />
-              </HStack>
-            </Button>
           </ModalBody>
 
           <ModalFooter>
