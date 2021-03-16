@@ -21,9 +21,11 @@ import {
 import { ExternalLinkIcon, LockIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { getEventByID } from "../utils";
+import { EventContext } from "./../context/EventContext";
 
 const EventModal = (props) => {
-  const router = useRouter();
+  const { currentState } = React.useContext(EventContext);
+  const { isLoggedIn } = currentState;
   const { onOpen } = useDisclosure();
   const { isOpen, currentEvent, onClose, events } = props;
   const finalRef = React.useRef();
@@ -64,7 +66,7 @@ const EventModal = (props) => {
                   </a>
                 </Button>
               )}
-              {eventPrivateLink && (
+              {eventPrivateLink && isLoggedIn && (
                 <Button backgroundColor="youtube">
                   <a href={`${eventPrivateLink}`} target="_blank">
                     <HStack spacing={4} my={4}>
