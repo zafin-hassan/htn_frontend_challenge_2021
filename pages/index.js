@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="landing-container">
       <Head>
-        <title>Create Next App</title>
+        <title>Hack The North</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
