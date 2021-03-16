@@ -16,18 +16,21 @@ a {
 }
 
 .workshop {
-  /* border: 2px solid lightcoral; */
-  background-color: #73c6b6;
+  border: 5px solid #73c6b6;
+  border-radius: 5%;
+  /* background-color: #73c6b6; */
 }
 
 .activity {
-  /* border: 2px solid lightblue; */
-  background-color: #ffbf74;
+  border: 5px solid #ffbf74;
+  border-radius: 5%;
+  /* background-color: #ffbf74; */
 }
 
 .tech_talk {
-  /* border: 2px solid lightgreen; */
-  background-color: #276897;
+  border: 5px solid #276897;
+  border-radius: 5%;
+  /* background-color: #276897; */
 }
 
 .landing-container {

@@ -4,7 +4,8 @@ import axios from "axios";
 import * as React from "react";
 import { EventContext } from "./../context/EventContext";
 import { filterEvents } from "../utils";
-import { HStack } from "@chakra-ui/layout";
+import { HStack, Text } from "@chakra-ui/layout";
+import { CircleIcon } from "../styles/CircleIcon";
 
 const EventContainer = (props) => {
   const { currentState, dispatch } = React.useContext(EventContext);
@@ -71,7 +72,10 @@ const EventContainer = (props) => {
               variant="outline"
               onClick={() => handleFilterClick({ eventType: "workshop" })}
             >
-              Workshop
+              <HStack spacing="2">
+                <CircleIcon color="#73c6b6" boxSize={6} />
+                <Text>Workshop</Text>
+              </HStack>
             </Button>
             <Button
               className="activity"
@@ -80,7 +84,10 @@ const EventContainer = (props) => {
               variant="outline"
               onClick={() => handleFilterClick({ eventType: "activity" })}
             >
-              Activity
+              <HStack spacing="2">
+                <CircleIcon color="#ffbf74" boxSize={6} />
+                <Text>Activity</Text>
+              </HStack>
             </Button>
             <Button
               className="tech_talk"
@@ -89,7 +96,10 @@ const EventContainer = (props) => {
               px="50"
               onClick={() => handleFilterClick({ eventType: "tech_talk" })}
             >
-              Tech Talk
+              <HStack spacing="2">
+                <CircleIcon color="#276897" boxSize={6} />
+                <Text>Tech Talk</Text>
+              </HStack>
             </Button>
           </HStack>
           {/* </ButtonGroup> */}

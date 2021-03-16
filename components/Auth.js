@@ -36,6 +36,7 @@ const Auth = () => {
             <h1>Welcome {username}!</h1>
             <Button
               variant="solid"
+              color="#F1F1EE"
               backgroundColor="#279CCD"
               width="fit-content"
               onClick={() => dispatch({ type: "logOut" })}
@@ -79,6 +80,7 @@ const Auth = () => {
                 }
               />
               <Button
+                color="#F1F1EE"
                 variant="solid"
                 backgroundColor="#279CCD"
                 width="fit-content"
