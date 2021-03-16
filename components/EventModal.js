@@ -79,11 +79,15 @@ const EventModal = (props) => {
             <Heading size="sm" my="2">
               Related Events
             </Heading>
-            <VStack spacing={4} align="left">
-              {relatedEventList?.map((event, i) => (
-                <Text>{event?.name}</Text>
-              ))}
-            </VStack>
+            {!relatedEventList ? (
+              <VStack spacing={4} align="left">
+                {relatedEventList?.map((event, i) => (
+                  <Text>{event?.name}</Text>
+                ))}
+              </VStack>
+            ) : (
+              <Text> No Related Events 😢</Text>
+            )}
           </ModalBody>
 
           <ModalFooter>

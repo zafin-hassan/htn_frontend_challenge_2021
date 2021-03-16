@@ -103,16 +103,20 @@ const EventContainer = (props) => {
             </Button>
           </HStack>
           {/* </ButtonGroup> */}
-          <SimpleGrid
-            justifyContent="center"
-            columns={[null, 2, 4]}
-            spacingX="40px"
-            spacingY="20px"
-          >
-            {events?.map((event, i) => (
-              <EventComponent key={i} event={event} />
-            ))}
-          </SimpleGrid>
+          {events[0] ? (
+            <SimpleGrid
+              justifyContent="center"
+              columns={[null, 2, 4]}
+              spacingX="40px"
+              spacingY="20px"
+            >
+              {events?.map((event, i) => (
+                <EventComponent key={i} event={event} />
+              ))}
+            </SimpleGrid>
+          ) : (
+            <Text>No Events To Show 😢</Text>
+          )}
         </>
       )}
     </div>
