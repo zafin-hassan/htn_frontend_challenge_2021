@@ -26,14 +26,11 @@ const EventContainer = (props) => {
           type: "setEvents",
           payload: isLoggedIn ? sortedEvents : publicEvents,
         });
-        console.log(sortedEvents);
       });
   };
   const handleFilterClick = (props) => {
     const { eventType } = props;
-    // console.log(eventType);
     const filteredEvents = filterEvents(eventType, allEvents);
-    console.log(filteredEvents);
     dispatch({
       type: "filterEvents",
       payload: filteredEvents,
@@ -53,7 +50,6 @@ const EventContainer = (props) => {
     <div>
       {events && (
         <>
-          {/* <ButtonGroup variant="outline"  overflowX> */}
           <HStack
             style={{
               overflow: "auto",
@@ -102,7 +98,6 @@ const EventContainer = (props) => {
               </HStack>
             </Button>
           </HStack>
-          {/* </ButtonGroup> */}
           {events[0] ? (
             <SimpleGrid
               justifyContent="center"

@@ -47,14 +47,11 @@ const EventComponent = (props) => {
     onOpen();
   };
 
-  // const milliseconds = start_time * 1000;
-
   const dateObject = new Date(start_time);
   const endDateObject = new Date(end_time);
 
   const dayOptions = {
     weekday: "long",
-    // year: "numeric",
     month: "long",
     day: "numeric",
   };
@@ -70,7 +67,6 @@ const EventComponent = (props) => {
     .toLocaleDateString("en-US", hourOptions)
     .split(",")[1];
 
-  console.log(startTime);
   return (
     <VStack
       align="left"

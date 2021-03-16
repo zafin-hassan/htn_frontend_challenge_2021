@@ -26,21 +26,14 @@ import { EventContext } from "./../context/EventContext";
 const EventModal = (props) => {
   const { currentState } = React.useContext(EventContext);
   const { isLoggedIn } = currentState;
-  const { onOpen } = useDisclosure();
   const { isOpen, currentEvent, onClose, events } = props;
   const finalRef = React.useRef();
-  console.log(currentEvent.speakers);
 
-  // const handleClick = (e) => {
-  //   e.preventDefault();
   const eventPublicLink = currentEvent.public_url;
   const eventPrivateLink = currentEvent.private_url;
-  //   router.push(href);
-  // };
   const relatedEventList = currentEvent?.related_events?.map((id) =>
     getEventByID(id, events)
   );
-  console.log(relatedEventList);
   return (
     <>
       <Modal
