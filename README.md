@@ -22,8 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Color Coded events
 - Links for public and private events where available
 
-## Design Decisions
-
+## Write Up
 ### Folder Structure
 The project has the following folder structure:
 ```
@@ -45,7 +44,6 @@ The project has the following folder structure:
 └───utils
 ```
 
---- 
 ### Tools Used
 - NextJS
   - It is a great choice for server side rendering. NextJS also has a lot of really nice features built in such as routing and image caching!
